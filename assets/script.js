@@ -71,6 +71,11 @@ function generatePassword(lower, upper, number, symbol, length) {
   return finalPassword;
   
 }
+//create window prompts
+var lowercasePrompt = prompt("Would you like your generated password to contain lowercase letters?")
+var uppercasePrompt = prompt("Would you like your generated password to contain uppercase letters?")
+var numbersPrompt = prompt("Would you like your generated password to contain numbers?")
+var specialPrompt = prompt("Would you like your generated password to contain special characters?")
 
 // Add event listener to generate button and submit button
 generateBtn.addEventListener("click", showForm);
