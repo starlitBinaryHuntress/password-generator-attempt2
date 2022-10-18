@@ -37,26 +37,21 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-function getPreferences(event) {
-  event.preventDefault()
-  writePassword();
-}
-
 function generatePassword(lower, upper, number, symbol, length) {
   var generatedPassword = '';
 
   var typesCount = lower + upper + number + symbol;
 
   const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(
-    item => Object.values(item)[0]
+    
   );
 
   if(typesCount === 0) {
-    return "Please enter your criteria"
+    return "Please refresh the page and enter your criteria."
   }
 
-  if(length < 8) {
-    return "The password must be more than 8 characters."
+  if(lengthPrompt < 8 || lengthPrompt > 128) {
+    return "The password must be more than 8 characters and less than 128."
   }
 
   for (let i = 0; i < length; i += typesCount) {
@@ -69,29 +64,14 @@ function generatePassword(lower, upper, number, symbol, length) {
   }
   var finalPassword = generatedPassword.slice(0, 128);
   return finalPassword;
-  
 }
+
 //create window prompts
 var lowercasePrompt = prompt("Would you like your generated password to contain lowercase letters?")
 var uppercasePrompt = prompt("Would you like your generated password to contain uppercase letters?")
 var numbersPrompt = prompt("Would you like your generated password to contain numbers?")
 var specialPrompt = prompt("Would you like your generated password to contain special characters?")
+var lengthPrompt = prompt("How long would you like your password to be? Answer must be between 8-128 characters")
 
 // Add event listener to generate button and submit button
-generateBtn.addEventListener("click", showForm);
-
-submitBtn.addEventListener("click", function() {
-  event.preventDefault();
-  var length = +lengthEl.value;
-  var hasLower = lowercaseEl.checked;
-  var hasUpper = uppercaseEl.checked;
-  var hasNumber = numbersEl.checked;
-  var hasSpecial = specialEl.checked;
-
-  passwordText.innerText = generatePassword(
-    hasLower, 
-    hasUpper, 
-    hasNumber, 
-    hasSpecial, 
-    length);
-});
+generateBtn.addEventListener("click", generatePassword());
