@@ -13,6 +13,13 @@ var numbersEl = document.querySelector("#numbers");
 
 var specialEl = document.querySelector("#special");
 
+//create window prompts
+var lowercasePrompt = prompt("Would you like your generated password to contain lowercase letters?")
+var uppercasePrompt = prompt("Would you like your generated password to contain uppercase letters?")
+var numbersPrompt = prompt("Would you like your generated password to contain numbers?")
+var specialPrompt = prompt("Would you like your generated password to contain special characters?")
+var lengthPrompt = prompt("How long would you like your password to be? Answer must be between 8-128 characters")
+
 const variables = {
   lower: getRandomLower,
   upper: getRandomUpper,
@@ -37,14 +44,23 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-function generatePassword(lower, upper, number, symbol, length) {
+function generatePassword(lowercasePrompt, uppercasePrompt, numbersPrompt, specialPrompt, lengthPrompt) {
   var generatedPassword = '';
 
-  var typesCount = lower + upper + number + symbol;
+  if (lowercasePrompt.toLowerCase() === "yes") {
+    generatedPassword += getRandomLower();
+  }
+  if (uppercasePrompt.toLowerCase() === "yes") {
+    generatedPassword += getRandomUpper();
+  }
+  if (numbersPrompt.toLowerCase() === "yes") {
+    generatedPassword += getRandomNumber();
+  }
+  if (specialPrompt.toLowerCase() === "yes") {
+    generatedPassword += getRandomSymbol();
+  }
 
-  const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(
-    
-  );
+  var typesCount = lower + upper + number + symbol;
 
   if(typesCount === 0) {
     return "Please refresh the page and enter your criteria."
@@ -54,7 +70,7 @@ function generatePassword(lower, upper, number, symbol, length) {
     return "The password must be more than 8 characters and less than 128."
   }
 
-  for (let i = 0; i < length; i += typesCount) {
+  for (let i = 0; i < lengthPrompt; i += typesCount) {
     typesArr.forEach(type => {
       const funcName = Object.keys(type)[0];
       console.log('funcName: ', funcName)
@@ -65,13 +81,6 @@ function generatePassword(lower, upper, number, symbol, length) {
   var finalPassword = generatedPassword.slice(0, 128);
   return finalPassword;
 }
-
-//create window prompts
-var lowercasePrompt = prompt("Would you like your generated password to contain lowercase letters?")
-var uppercasePrompt = prompt("Would you like your generated password to contain uppercase letters?")
-var numbersPrompt = prompt("Would you like your generated password to contain numbers?")
-var specialPrompt = prompt("Would you like your generated password to contain special characters?")
-var lengthPrompt = prompt("How long would you like your password to be? Answer must be between 8-128 characters")
 
 // Add event listener to generate button and submit button
 generateBtn.addEventListener("click", generatePassword());
