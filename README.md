@@ -1,1 +1,3 @@
 # password-generator-attempt2
+![password-generator-attempt2-screenshot](https://user-images.githubusercontent.com/96992560/196608076-a3ce2e74-676f-4d23-94b9-84f53b3a1dda.png)
+I was motivated to correct the mistakes I had previously made in the first attempt of this challenge. I wanted to hone my skills in javascript with this challenge. This app will randomly generate a secure password with the variables the user requests. I learned many factors of prompts, alerts, and the input that goes into them. You can view the deployed page here. https://manylizards.github.io/password-generator-attempt2/
