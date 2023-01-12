@@ -1,7 +1,7 @@
 # password-generator-attempt2
 
 ## Description
-I was motivated to correct the mistakes I had previously made in the first attempt of this challenge. I wanted to hone my skills in javascript with this challenge. This app will randomly generate a secure password with the variables the user requests. I learned many factors of prompts, alerts, and the input that goes into them. 
+I was motivated to correct the mistakes I had previously made in the first attempt of this challenge, and really get the hang of javascript to understand front-end functionality. I wanted to hone my skills in javascript with this challenge. This app will randomly generate a secure password with the variables the user requests. I learned many factors of prompts, alerts, and the input that goes into them. 
 
 ## Table of Contents
 
