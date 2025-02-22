@@ -20,7 +20,7 @@ Simply go to the page and answer the prompted questions.
 
 ![password-generator-attempt2-screenshot](https://user-images.githubusercontent.com/96992560/196608076-a3ce2e74-676f-4d23-94b9-84f53b3a1dda.png)
 
-You can view the deployed page here. https://manylizards.github.io/password-generator-attempt2/
+You can view the deployed page here. [https://manylizards.github.io/password-generator-attempt2/](https://starlitbinaryhuntress.github.io/password-generator-attempt2/)
 
 ## Credits
 
